@@ -5,4 +5,4 @@ script_name: nice-script.sh
 skeleton_dir: /etc/skel
 terraform_version: 1.8.0-rc1
 terraform_url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
-tf_install_dir: usr/local/bin
+tf_install_path: /usr/local/bin

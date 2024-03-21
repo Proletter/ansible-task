@@ -1,0 +1,10 @@
+- name: Make sure better-place dir exists
+  ansible.builtin.file:
+    path: /better-place
+    state: directory
+
+- name: Copy script to remote machine
+  ansible.builtin.copy:
+    src: "{{ script_name }}"
+    dest: "{{ skeleton_dir }}"
+    mode: "0755"

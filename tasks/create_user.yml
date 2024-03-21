@@ -1,0 +1,14 @@
+- name: Create user
+  ansible.builtin.user:
+    name: "{{ username }}"
+    uid: "{{ user_id }}"
+    shell: /bin/bash
+    create_home: true
+    home: "{{ home }}"
+    skeleton: "{{ skeleton_dir }}"
+
+- name: Ensure user can run whoami with sudo without password
+  ansible.builtin.lineinfile:
+    dest: /etc/sudoers
+    line: '"{{ username }}" ALL=(ALL) NOPASSWD: /usr/bin/whoami'
+    validate: 'visudo -cf %s'

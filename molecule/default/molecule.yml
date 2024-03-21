@@ -15,5 +15,7 @@ platforms:
     platform: linux/amd64
 provisioner:
   name: ansible
+  env:
+    ANSIBLE_VERBOSITY: 3
   playbooks:
     converge: converge.yml

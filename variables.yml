@@ -1,0 +1,7 @@
+username: john
+user_id: 1234
+home: /better-place/{{ username }}
+script_name: nice-script.sh
+skeleton_dir: /etc/skel
+terraform_version: 1.8.0-rc1
+terraform_url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip

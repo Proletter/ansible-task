@@ -1,24 +1,17 @@
 ---
 - name: Playbook
   hosts: all
-  vars:
-    username: john
-    user_id: 1234
-    home: /better-place/john
-    script_name: nice-script.sh
-    skeleton_dir: /etc/skel
-
+  vars_files:
+    - variables.yml
   tasks:
-    - name: Make sure better-place dir exists
-      ansible.builtin.file:
-        path: /better-place
-        state: directory
+    - name: create dir if not exist and copy script
+      ansible.builtin.import_tasks: tasks/copy_script.yml
 
     - name: create user and make required changes
-      ansible.builtin.import_tasks: create_user.yml
+      ansible.builtin.import_tasks: tasks/create_user.yml
     
     - name: Install all required packages
-      ansible.builtin.import_tasks: install_packages.yml
+      ansible.builtin.import_tasks: tasks/install_packages.yml
 
     - name: install terraform cli
-      ansible.builtin.import_tasks: install_terraform.yml
+      ansible.builtin.import_tasks: tasks/install_terraform.yml

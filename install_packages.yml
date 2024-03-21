@@ -1,5 +1,0 @@
-- name: Install Packages
-  ansible.builtin.package:
-    name: [ "tmux", "vim" ]
-    state: present
-    update_cache: yes

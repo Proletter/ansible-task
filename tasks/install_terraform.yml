@@ -11,5 +11,17 @@
 - name: Unzip the downloaded file
   ansible.builtin.unarchive:
     src: "/tmp/terraform_{{ terraform_version }}_linux_amd64.zip"
-    dest: "/usr/local/bin"
+    dest: "{{ tf_install_path }}"
     remote_src: yes
+
+- name: Make terraform binary executable
+  ansible.builtin.file:
+    path: "{{ tf_install_path }}/terraform"
+    mode: '0755'
+
+- name: Add terraform to PATH
+  ansible.builtin.lineinfile:
+    dest: "/etc/profile.d/velero.sh"
+    line: 'export PATH=$PATH:{{ tf_install_path }}/terraform'
+    create: true
+    mode: "0755"

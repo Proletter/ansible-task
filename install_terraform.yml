@@ -1,0 +1,15 @@
+- name: Install unzip if not present
+  ansible.builtin.package:
+    name: unzip
+    state: present
+
+- name: Download terraform zip
+  ansible.builtin.get_url:
+    url: https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip
+    dest: "/tmp"
+
+- name: Unzip the downloaded file
+  ansible.builtin.unarchive:
+    src: "/tmp/terraform_0.12.24_linux_amd64.zip"
+    dest: "/usr/local/bin"
+    remote_src: yes

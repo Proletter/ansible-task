@@ -28,5 +28,3 @@ Remove the container:
 ```bash
 molecule destroy
 ```
-
-a

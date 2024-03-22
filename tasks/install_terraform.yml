@@ -26,7 +26,7 @@
 
 - name: Add terraform to PATH
   ansible.builtin.lineinfile:
-    dest: "/etc/profile.d/velero.sh"
+    dest: "/etc/profile.d/terraform.sh"
     line: 'export PATH=$PATH:{{ tf_install_path }}/terraform'
     create: true
     mode: "0755"

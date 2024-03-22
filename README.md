@@ -28,3 +28,8 @@ Remove the container:
 ```bash
 molecule destroy
 ```
+
+### How to run playbook
+- Install ansible and all dependencies by running `pip3 install -r requirements.txt`
+- Update the inventory.ini file with the IP address, user and path to ssh private key of the remote machine
+- Run `ansible-playbook -i inventory.ini playbook.yaml`
